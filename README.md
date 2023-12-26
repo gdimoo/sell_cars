@@ -26,6 +26,7 @@ cd zrch_test
 
 # Run with Docker
 docker docker-compose up --build
+```
 
 API will be accessible at http://127.0.0.1:8000.
 
@@ -50,4 +51,4 @@ Retrieve Car Status: GET /listings/{car_id}
 API Documentation
 Access Swagger documentation at http://127.0.0.1:8000/docs for detailed information on available endpoints and request/response formats.
 
-```
+

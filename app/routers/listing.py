@@ -4,10 +4,10 @@ from app.database import Database, close_mongo_connection, connect_to_mongo
 
 router = APIRouter()
 
-def get_database():
+async def get_database():
     db = Database()
     try:
-        connect_to_mongo()
+        await connect_to_mongo()
         yield db
     finally:
         close_mongo_connection()

@@ -5,10 +5,10 @@ from bson import ObjectId
 
 router = APIRouter()
 
-def get_database():
+async def get_database():
     db = Database()
     try:
-        connect_to_mongo()
+        await connect_to_mongo()
         yield db
     finally:
         close_mongo_connection()
@@ -41,7 +41,6 @@ async def update_car(car_id: str, car: CarCreate, db: Database = Depends(get_dat
     
     updated_car_dict = car.dict()
 
-    
     result = await db.client.cars.update_one(
         {"_id": ObjectId(car_id)},
         {"$set": updated_car_dict}
